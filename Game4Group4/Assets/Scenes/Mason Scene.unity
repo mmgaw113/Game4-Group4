@@ -337,8 +337,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fuel: 50
-  launchSpeed: 3
-  goingUp: 0
+  launchSpeed: 100
+  grounded: 0
   fallSpeed: 0
 --- !u!54 &1784914666
 Rigidbody:

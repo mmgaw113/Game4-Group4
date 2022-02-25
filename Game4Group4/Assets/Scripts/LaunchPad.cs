@@ -6,30 +6,27 @@ public class LaunchPad : MonoBehaviour
 {
     public float fuel;
     public float launchSpeed;
-    public bool goingUp = false;
+    public bool grounded = false;
     private Rigidbody rb;
     public float fallSpeed;
     // Start is called before the first frame update
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        grounded = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (goingUp)
+        if (Input.GetKeyDown(KeyCode.F) && grounded)
         {
-            fuel -= 10 * Time.deltaTime;
+            Launch();
+            grounded = false;
         }
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            rb.AddForce(transform.up * launchSpeed, ForceMode.Impulse);
-            goingUp = true;
-        }
-        else if(fuel <= 0)
-        {
-            goingUp = false;
-        }
+    }
+    void Launch()
+    {
+        rb.AddForce(transform.up * launchSpeed, ForceMode.Impulse);
     }
 }
