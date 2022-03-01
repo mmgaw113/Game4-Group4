@@ -14,6 +14,28 @@ public class ButtonManager : MonoBehaviour
     public void ConfirmButton()
     {
         Manager.ConfirmButton();
-        SceneManager.LoadScene("Mason Scene");
+        SceneManager.LoadScene("Julien Scene");
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("UpgradeScene");
+    }
+
+    public void MenuButton()
+    {
+        Manager.paused = false;
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Opening Scene");
+    }
+
+    public void AddMoneyButton()
+    {
+        Manager.AddMoney(10);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
