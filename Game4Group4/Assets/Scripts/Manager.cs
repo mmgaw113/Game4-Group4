@@ -30,7 +30,7 @@ public class Manager : MonoBehaviour
     void Awake()
     {
         Transform upgradeCanvas = GameObject.Find("UpgradeCanvas").transform;
-        moneyText = upgradeCanvas.GetChild(0).GetComponent<Text>();
+        moneyText = upgradeCanvas.GetChild(1).GetComponent<Text>();
         moneyText.text = "Money: " + money.ToString();
         stats = new Dictionary<UpgradeType, Stat>();
         buttons = new Dictionary<UpgradeType, UpgradeButtons>();
