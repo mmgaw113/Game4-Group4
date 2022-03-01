@@ -224,11 +224,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1349131247711749043, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
       propertyPath: m_Name
-      value: Upgrade (8)
+      value: ParachuteSize
       objectReference: {fileID: 0}
     - target: {fileID: 1349131248404226354, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
       propertyPath: upgradeType
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128419572392159635, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
+      propertyPath: m_text
+      value: Parachute size
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
@@ -338,11 +342,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1349131247711749043, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
       propertyPath: m_Name
-      value: Upgrade (4)
+      value: Fuel
       objectReference: {fileID: 0}
     - target: {fileID: 1349131248404226354, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
       propertyPath: upgradeType
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128419572392159635, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
+      propertyPath: m_text
+      value: Fuel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
@@ -452,11 +460,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1349131247711749043, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
       propertyPath: m_Name
-      value: Upgrade (6)
+      value: BoostFuel
       objectReference: {fileID: 0}
     - target: {fileID: 1349131248404226354, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
       propertyPath: upgradeType
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128419572392159635, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
+      propertyPath: m_text
+      value: Boost    Fuel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
@@ -566,11 +578,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1349131247711749043, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
       propertyPath: m_Name
-      value: Upgrade (2)
+      value: Speed
       objectReference: {fileID: 0}
     - target: {fileID: 1349131248404226354, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
       propertyPath: upgradeType
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128419572392159635, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
+      propertyPath: m_text
+      value: sPEED
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
@@ -655,7 +671,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -792,11 +808,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1349131247711749043, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
       propertyPath: m_Name
-      value: Upgrade (9)
+      value: Lives
       objectReference: {fileID: 0}
     - target: {fileID: 1349131248404226354, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
       propertyPath: upgradeType
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128419572392159635, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
+      propertyPath: m_text
+      value: Lives
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
@@ -1052,11 +1072,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1349131247711749043, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
       propertyPath: m_Name
-      value: Upgrade (7)
+      value: Parachute
       objectReference: {fileID: 0}
     - target: {fileID: 1349131248404226354, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
       propertyPath: upgradeType
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128419572392159635, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
+      propertyPath: m_text
+      value: Parachute
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
@@ -1166,11 +1190,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1349131247711749043, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
       propertyPath: m_Name
-      value: Upgrade (5)
+      value: BoostSpeed
       objectReference: {fileID: 0}
     - target: {fileID: 1349131248404226354, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
       propertyPath: upgradeType
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128419572392159635, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
+      propertyPath: m_text
+      value: Boost  Speed
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
@@ -1355,7 +1383,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1349131247711749043, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
       propertyPath: m_Name
-      value: Upgrade
+      value: Handling
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128419572392159635, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
+      propertyPath: m_text
+      value: Handling
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
@@ -1465,11 +1497,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1349131247711749043, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
       propertyPath: m_Name
-      value: Upgrade (3)
+      value: ReverseSpeed
       objectReference: {fileID: 0}
     - target: {fileID: 1349131248404226354, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
       propertyPath: upgradeType
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128419572392159635, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
+      propertyPath: m_text
+      value: Reverse Speed
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
@@ -2075,11 +2111,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1349131247711749043, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
       propertyPath: m_Name
-      value: Upgrade (1)
+      value: LaunchSpeed
       objectReference: {fileID: 0}
     - target: {fileID: 1349131248404226354, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
       propertyPath: upgradeType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128419572392159635, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
+      propertyPath: m_text
+      value: Launch Speed
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128419572392159635, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
+      propertyPath: m_fontSize
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128419572392159635, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
+      propertyPath: m_fontStyle
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2128419572392159635, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 13d18d6453888c24d85fd32398f70738, type: 3}
