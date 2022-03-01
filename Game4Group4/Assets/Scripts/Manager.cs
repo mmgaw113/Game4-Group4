@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public enum UpgradeType
 {
@@ -23,7 +22,7 @@ public class Manager : MonoBehaviour
 
     public static float money = 40f;
     public static float refundMoney = 0f;
-    private static TextMeshProUGUI moneyText;
+    private static Text moneyText;
     public static Dictionary<UpgradeType, Stat> stats;
     public static Dictionary<UpgradeType, UpgradeButtons> buttons;
 
@@ -31,7 +30,7 @@ public class Manager : MonoBehaviour
     void Awake()
     {
         Transform upgradeCanvas = GameObject.Find("UpgradeCanvas").transform;
-        moneyText = upgradeCanvas.GetChild(0).GetComponent<TextMeshProUGUI>();
+        moneyText = upgradeCanvas.GetChild(0).GetComponent<Text>();
         moneyText.text = "Money: " + money.ToString();
         stats = new Dictionary<UpgradeType, Stat>();
         buttons = new Dictionary<UpgradeType, UpgradeButtons>();
