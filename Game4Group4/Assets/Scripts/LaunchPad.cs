@@ -9,6 +9,7 @@ public class LaunchPad : MonoBehaviour
     public bool grounded = false;
     private Rigidbody rb;
     public float fallSpeed;
+    public bool hasParachute;
     // Start is called before the first frame update
     void Awake()
     {
@@ -19,6 +20,10 @@ public class LaunchPad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Space) && hasParachute)
+        {
+            Parachute();
+        }
         if (Input.GetKeyDown(KeyCode.F) && grounded)
         {
             Launch();
@@ -28,5 +33,9 @@ public class LaunchPad : MonoBehaviour
     void Launch()
     {
         rb.AddForce(transform.up * launchSpeed, ForceMode.Impulse);
+    }
+    void Parachute()
+    {
+        rb.isKinematic = true;
     }
 }

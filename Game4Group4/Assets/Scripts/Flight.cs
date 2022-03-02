@@ -19,6 +19,8 @@ public class Flight : MonoBehaviour
     public float boostSpeed;
     private float lives;
     private bool dead;
+    public bool hasParachute;
+    public float parachuteFallspeed;
     // Start is called before the first frame update
     void Awake()
     {
@@ -57,6 +59,14 @@ public class Flight : MonoBehaviour
     {
         if (!dead)
         {
+            if (Input.GetKeyDown(KeyCode.Space) && hasParachute && fuel <= 0)
+            {
+                Parachute();
+            }
+            if(fuel <= 0 && !hasParachute)
+            {
+                Falling();
+            }
             if (Input.GetKeyDown(KeyCode.F) && grounded)
             {
                 Launch();
@@ -107,5 +117,15 @@ public class Flight : MonoBehaviour
     void Launch()
     {
         rb.AddForce(transform.up * launchSpeed * Manager.stats[UpgradeType.LaunchSpeed].Val, ForceMode.Impulse);
+    }
+    void Parachute()
+    {
+        //rb.useGravity = false;
+        rb.velocity = new Vector3(0f, parachuteFallspeed, 0f);
+    }
+    void Falling()
+    {
+        //rb.useGravity = false;
+        rb.velocity = new Vector3(0f, fallSpeed, 0f);
     }
 }
