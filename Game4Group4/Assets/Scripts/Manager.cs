@@ -92,7 +92,10 @@ public class Manager : MonoBehaviour
     public static void AddMoney(int add)
     {
         money += add;
-        moneyText.text = "Money: " + money.ToString();
+        if (moneyText != null)
+        {
+            moneyText.text = "Money: " + money.ToString();
+        }
     }
 
     // Update is called once per frame

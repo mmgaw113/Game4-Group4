@@ -11,6 +11,7 @@ public class Flight : MonoBehaviour
     public bool grounded = false;
     private Rigidbody rb;
     public float fallSpeed;
+    public float parachuteFallSpeed;
     public float rotationSpeed;
     private Transform mainCamera;
     public float speed;
@@ -25,9 +26,12 @@ public class Flight : MonoBehaviour
     private bool lerping;
     private AsteroidManager asteroidManager;
     private Text heightText;
+    private Text fuelText;
+    private Text boostText;
     private float height;
     private bool launched;
     private float launchTimer;
+    public GameObject rocketTrail;
     // Start is called before the first frame update
     void Awake()
     {
@@ -38,7 +42,10 @@ public class Flight : MonoBehaviour
         mainCamera = transform.GetChild(0);
         lives = Manager.stats[UpgradeType.Lives].Val;
         asteroidManager = GameObject.Find("AsteroidManager").GetComponent<AsteroidManager>();
-        heightText = GameObject.Find("Canvas").transform.GetChild(0).GetComponent<Text>();
+        GameObject canvas = GameObject.Find("Canvas");
+        heightText = canvas.transform.GetChild(0).GetComponent<Text>();
+        fuelText = canvas.transform.GetChild(1).GetComponent<Text>();
+        boostText = canvas.transform.GetChild(2).GetComponent<Text>();
         launchTimer = 1f;
     }
 
@@ -55,7 +62,7 @@ public class Flight : MonoBehaviour
                 rb.useGravity = false;
                 GetComponent<MeshRenderer>().enabled = false;
                 GetComponent<CapsuleCollider>().enabled = false;
-                int earnings = (int)(height / 20f) - 5;
+                int earnings = (int)(height / 20f) - 10;
                 if (earnings < 0) earnings = 0;
                 Manager.money += earnings;
                 Invoke("LoadUpgradeScene", 2f);
@@ -78,10 +85,18 @@ public class Flight : MonoBehaviour
     {
         if (!dead)
         {
+            if(fuel > 0f)
+            {
+                fuelText.text = "Fuel: " + ((int)fuel).ToString();
+            }
+            if(boostFuel > 0f)
+            {
+                boostText.text = "Boost: " + ((int)boostFuel).ToString();
+            }
             if(transform.position.y > height)
             {
                 height = transform.position.y;
-                heightText.text = ((int)transform.position.y).ToString();
+                heightText.text = "Height: " + ((int)transform.position.y).ToString();
             }
             if (lerping)
             {
@@ -95,18 +110,19 @@ public class Flight : MonoBehaviour
             }
             if(fuel <= 0)
             {
-                if (Manager.stats[UpgradeType.Parachute].Val != 0f)
-                {
-                    Parachute();
-                }
-                else
-                {
-                    Falling();
-                }
                 if (!lostFuel)
                 {
                     lostFuel = true;
                     lerping = true;
+                    if (Manager.stats[UpgradeType.Parachute].Val != 0f)
+                    {
+                        Parachute();
+                    }
+                    else
+                    {
+                        Falling();
+                        rocketTrail.SetActive(false);
+                    }
                 }
             }
             if (Input.GetKeyDown(KeyCode.F) && grounded)
@@ -194,16 +210,21 @@ public class Flight : MonoBehaviour
                 mainCamera.position = new Vector3(0f, 5f, transform.position.z - 8f);
             }
         }
+        else
+        {
+            rocketTrail.SetActive(false);
+        }
     }
     void Launch()
     {
         rb.AddForce(transform.up * launchSpeed * Manager.stats[UpgradeType.LaunchSpeed].Val, ForceMode.Impulse);
+        rocketTrail.SetActive(true);
         launched = true;
     }
     void Parachute()
     {
         //rb.useGravity = false;
-        rb.velocity = new Vector3(rb.velocity.x, fallSpeed * (1.1f - (Manager.stats[UpgradeType.ParachuteSize].Val / Manager.stats[UpgradeType.Parachute].ValMax)), 0f);
+        rb.velocity = new Vector3(rb.velocity.x, parachuteFallSpeed * (1.1f - (Manager.stats[UpgradeType.ParachuteSize].Val / Manager.stats[UpgradeType.Parachute].ValMax)), 0f);
     }
     void Falling()
     {
