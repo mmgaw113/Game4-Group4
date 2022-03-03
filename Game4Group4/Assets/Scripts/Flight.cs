@@ -11,6 +11,7 @@ public class Flight : MonoBehaviour
     public bool grounded = false;
     private Rigidbody rb;
     public float fallSpeed;
+    public float parachuteFallSpeed;
     public float rotationSpeed;
     private Transform mainCamera;
     public float speed;
@@ -210,7 +211,7 @@ public class Flight : MonoBehaviour
     void Parachute()
     {
         //rb.useGravity = false;
-        rb.velocity = new Vector3(rb.velocity.x, fallSpeed * (1.1f - (Manager.stats[UpgradeType.ParachuteSize].Val / Manager.stats[UpgradeType.Parachute].ValMax)), 0f);
+        rb.velocity = new Vector3(rb.velocity.x, parachuteFallSpeed * (1.1f - (Manager.stats[UpgradeType.ParachuteSize].Val / Manager.stats[UpgradeType.Parachute].ValMax)), 0f);
     }
     void Falling()
     {

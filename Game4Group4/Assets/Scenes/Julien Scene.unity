@@ -1604,7 +1604,8 @@ MonoBehaviour:
   fuel: 20
   launchSpeed: 100
   grounded: 0
-  fallSpeed: 0.3
+  fallSpeed: -10
+  parachuteFallSpeed: -3
   rotationSpeed: 20
   speed: 4
   xMax: 8
