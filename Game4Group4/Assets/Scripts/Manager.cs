@@ -20,7 +20,7 @@ public enum UpgradeType
 public class Manager : MonoBehaviour
 {
 
-    public static int money = 40;
+    public static int money = 3;
     public static int refundMoney = 0;
     private static Text moneyText;
     public static Dictionary<UpgradeType, Stat> stats;
