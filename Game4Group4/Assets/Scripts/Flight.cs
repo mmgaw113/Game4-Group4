@@ -26,6 +26,8 @@ public class Flight : MonoBehaviour
     private bool lerping;
     private AsteroidManager asteroidManager;
     private Text heightText;
+    private Text fuelText;
+    private Text boostText;
     private float height;
     private bool launched;
     private float launchTimer;
@@ -40,7 +42,10 @@ public class Flight : MonoBehaviour
         mainCamera = transform.GetChild(0);
         lives = Manager.stats[UpgradeType.Lives].Val;
         asteroidManager = GameObject.Find("AsteroidManager").GetComponent<AsteroidManager>();
-        heightText = GameObject.Find("Canvas").transform.GetChild(0).GetComponent<Text>();
+        GameObject canvas = GameObject.Find("Canvas");
+        heightText = canvas.transform.GetChild(0).GetComponent<Text>();
+        fuelText = canvas.transform.GetChild(1).GetComponent<Text>();
+        boostText = canvas.transform.GetChild(2).GetComponent<Text>();
         launchTimer = 1f;
     }
 
@@ -80,10 +85,18 @@ public class Flight : MonoBehaviour
     {
         if (!dead)
         {
+            if(fuel > 0f)
+            {
+                fuelText.text = "Fuel: " + ((int)fuel).ToString();
+            }
+            if(boostFuel > 0f)
+            {
+                boostText.text = "Boost: " + ((int)boostFuel).ToString();
+            }
             if(transform.position.y > height)
             {
                 height = transform.position.y;
-                heightText.text = ((int)transform.position.y).ToString();
+                heightText.text = "Height: " + ((int)transform.position.y).ToString();
             }
             if (lerping)
             {
