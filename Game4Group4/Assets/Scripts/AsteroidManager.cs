@@ -20,6 +20,15 @@ public class AsteroidManager : MonoBehaviour
         timer = 0f;
     }
 
+    public void SwitchDir()
+    {
+        yDiff *= -1;
+        randomSpawnMin /= 4f;
+        randomSpawnMax /= 4f;
+        randomSpeedMin *= 4f;
+        randomSpeedMax *= 4f;
+    }
+
     // Update is called once per frame
     void Update()
     {
