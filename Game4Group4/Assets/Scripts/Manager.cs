@@ -26,23 +26,29 @@ public class Manager : MonoBehaviour
     public static Dictionary<UpgradeType, Stat> stats;
     public static Dictionary<UpgradeType, UpgradeButtons> buttons;
     public static bool paused;
+    private static bool startRun;
 
     // Start is called before the first frame update
     void Awake()
     {
-        stats = new Dictionary<UpgradeType, Stat>();
-        buttons = new Dictionary<UpgradeType, UpgradeButtons>();
-        stats.Add(UpgradeType.Handling, new Stat(1f, 1f, 5f, 1f, 1, 1));
-        stats.Add(UpgradeType.LaunchSpeed, new Stat(1f, 1f, 5f, 1f, 1, 1));
-        stats.Add(UpgradeType.Speed, new Stat(1f, 1f, 5f, 1f, 1, 1));
-        stats.Add(UpgradeType.ReverseSpeed, new Stat(1f, 1f, 5f, 1f, 1, 1));
-        stats.Add(UpgradeType.Fuel, new Stat(1f, .5f, 3f, 1f, 1, 1));
-        stats.Add(UpgradeType.BoostSpeed, new Stat(1f, 1f, 5f, 1f, 1, 1));
-        stats.Add(UpgradeType.BoostFuel, new Stat(1f, .5f, 3f, 1f, 1, 1));
-        stats.Add(UpgradeType.Parachute, new Stat(0f, 1f, 1f, 0f, 3, 0));
-        stats.Add(UpgradeType.ParachuteSize, new Stat(1f, 1f, 5f, 1f, 1, 1));
-        stats.Add(UpgradeType.Lives, new Stat(1f, 1f, 3f, 1f, 1, 2));
-        DontDestroyOnLoad(gameObject);
+        if (!startRun)
+        {
+            startRun = true;
+            Debug.Log("HERE");
+            stats = new Dictionary<UpgradeType, Stat>();
+            buttons = new Dictionary<UpgradeType, UpgradeButtons>();
+            stats.Add(UpgradeType.Handling, new Stat(1f, 1f, 5f, 1f, 1, 1));
+            stats.Add(UpgradeType.LaunchSpeed, new Stat(1f, 1f, 5f, 1f, 1, 1));
+            stats.Add(UpgradeType.Speed, new Stat(1f, 1f, 5f, 1f, 1, 1));
+            stats.Add(UpgradeType.ReverseSpeed, new Stat(1f, 1f, 5f, 1f, 1, 1));
+            stats.Add(UpgradeType.Fuel, new Stat(1f, .5f, 3f, 1f, 1, 1));
+            stats.Add(UpgradeType.BoostSpeed, new Stat(1f, 1f, 5f, 1f, 1, 1));
+            stats.Add(UpgradeType.BoostFuel, new Stat(1f, .5f, 3f, 1f, 1, 1));
+            stats.Add(UpgradeType.Parachute, new Stat(0f, 1f, 1f, 0f, 3, 0));
+            stats.Add(UpgradeType.ParachuteSize, new Stat(1f, 1f, 5f, 1f, 1, 1));
+            stats.Add(UpgradeType.Lives, new Stat(1f, 1f, 3f, 1f, 1, 2));
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     void Start()
