@@ -28,6 +28,7 @@ public class Flight : MonoBehaviour
     private float height;
     private bool launched;
     private float launchTimer;
+    public GameObject rocketTrail;
     // Start is called before the first frame update
     void Awake()
     {
@@ -106,6 +107,7 @@ public class Flight : MonoBehaviour
                     else
                     {
                         Falling();
+                        rocketTrail.SetActive(false);
                     }
                 }
             }
@@ -194,10 +196,15 @@ public class Flight : MonoBehaviour
                 mainCamera.position = new Vector3(0f, 5f, transform.position.z - 8f);
             }
         }
+        else
+        {
+            rocketTrail.SetActive(false);
+        }
     }
     void Launch()
     {
         rb.AddForce(transform.up * launchSpeed * Manager.stats[UpgradeType.LaunchSpeed].Val, ForceMode.Impulse);
+        rocketTrail.SetActive(true);
         launched = true;
     }
     void Parachute()
