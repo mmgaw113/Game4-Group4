@@ -32,6 +32,7 @@ public class Flight : MonoBehaviour
     private bool launched;
     private float launchTimer;
     public GameObject rocketTrail;
+    public float falling;
     // Start is called before the first frame update
     void Awake()
     {
@@ -48,7 +49,10 @@ public class Flight : MonoBehaviour
         boostText = canvas.transform.GetChild(2).GetComponent<Text>();
         launchTimer = 1f;
     }
-
+    private void Start()
+    {
+        falling = parachuteFallSpeed * (1.1f - (Manager.stats[UpgradeType.ParachuteSize].Val / Manager.stats[UpgradeType.Parachute].ValMax));
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.name[0] == 'A')
@@ -83,6 +87,7 @@ public class Flight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(falling);
         if (!dead)
         {
             if(fuel > 0f)
@@ -224,7 +229,7 @@ public class Flight : MonoBehaviour
     void Parachute()
     {
         //rb.useGravity = false;
-        rb.velocity = new Vector3(rb.velocity.x, parachuteFallSpeed * (1.1f - (Manager.stats[UpgradeType.ParachuteSize].Val / Manager.stats[UpgradeType.Parachute].ValMax)), 0f);
+        rb.velocity = new Vector3(rb.velocity.x, falling, 0f);
     }
     void Falling()
     {
