@@ -34,7 +34,6 @@ public class Manager : MonoBehaviour
         if (!startRun)
         {
             startRun = true;
-            Debug.Log("HERE");
             stats = new Dictionary<UpgradeType, Stat>();
             buttons = new Dictionary<UpgradeType, UpgradeButtons>();
             stats.Add(UpgradeType.Handling, new Stat(1f, 1f, 5f, 1f, 1, 1));
