@@ -36,9 +36,9 @@ public class Manager : MonoBehaviour
         stats.Add(UpgradeType.LaunchSpeed, new Stat(1f, 1f, 5f, 1f, 1, 1));
         stats.Add(UpgradeType.Speed, new Stat(1f, 1f, 5f, 1f, 1, 1));
         stats.Add(UpgradeType.ReverseSpeed, new Stat(1f, 1f, 5f, 1f, 1, 1));
-        stats.Add(UpgradeType.Fuel, new Stat(1f, 1f, 5f, 1f, 1, 1));
+        stats.Add(UpgradeType.Fuel, new Stat(1f, .5f, 3f, 1f, 1, 1));
         stats.Add(UpgradeType.BoostSpeed, new Stat(1f, 1f, 5f, 1f, 1, 1));
-        stats.Add(UpgradeType.BoostFuel, new Stat(1f, 1f, 5f, 1f, 1, 1));
+        stats.Add(UpgradeType.BoostFuel, new Stat(1f, .5f, 3f, 1f, 1, 1));
         stats.Add(UpgradeType.Parachute, new Stat(0f, 1f, 1f, 0f, 3, 0));
         stats.Add(UpgradeType.ParachuteSize, new Stat(1f, 1f, 5f, 1f, 1, 1));
         stats.Add(UpgradeType.Lives, new Stat(1f, 1f, 3f, 1f, 1, 2));

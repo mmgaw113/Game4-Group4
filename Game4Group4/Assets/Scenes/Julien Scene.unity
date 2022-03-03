@@ -510,7 +510,7 @@ MonoBehaviour:
   randomSpawnMax: 2
   xRight: 8
   xLeft: -8
-  yDiff: 12
+  yDiff: 9
   randomSpeedMin: 1
   randomSpeedMax: 5
 --- !u!4 &302380872
@@ -1337,11 +1337,11 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 20
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 48
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!23 &1553532963
 MeshRenderer:
@@ -1419,11 +1419,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2460e2e1b20faa64d9a4322c683d6b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fuel: 50
+  fuel: 10
   launchSpeed: 100
   grounded: 0
   fallSpeed: 0
   rotationSpeed: 20
+  speed: 4
+  xMax: 8
+  xMin: -8
+  boostFuel: 4
+  boostSpeed: 0.6
 --- !u!1 &1815078505
 GameObject:
   m_ObjectHideFlags: 0
