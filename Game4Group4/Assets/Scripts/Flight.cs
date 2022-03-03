@@ -55,7 +55,7 @@ public class Flight : MonoBehaviour
                 rb.useGravity = false;
                 GetComponent<MeshRenderer>().enabled = false;
                 GetComponent<CapsuleCollider>().enabled = false;
-                int earnings = (int)(height / 20f) - 10;
+                int earnings = (int)(height / 20f) - 5;
                 if (earnings < 0) earnings = 0;
                 Manager.money += earnings;
                 Invoke("LoadUpgradeScene", 2f);
@@ -95,18 +95,18 @@ public class Flight : MonoBehaviour
             }
             if(fuel <= 0)
             {
+                if (Manager.stats[UpgradeType.Parachute].Val != 0f)
+                {
+                    Parachute();
+                }
+                else
+                {
+                    Falling();
+                }
                 if (!lostFuel)
                 {
                     lostFuel = true;
                     lerping = true;
-                    if (Manager.stats[UpgradeType.Parachute].Val != 0f)
-                    {
-                        Parachute();
-                    }
-                    else
-                    {
-                        Falling();
-                    }
                 }
             }
             if (Input.GetKeyDown(KeyCode.F) && grounded)
