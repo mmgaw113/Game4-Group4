@@ -26,7 +26,7 @@ public class ButtonManager : MonoBehaviour
     {
         Manager.paused = false;
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Opening Scene");
+        SceneManager.LoadScene("MenuScene");
     }
 
     public void AddMoneyButton()
