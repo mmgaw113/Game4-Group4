@@ -2,19 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class UpgradeButtons : MonoBehaviour
 {
 
     public UpgradeType upgradeType;
-    private Text costText;
-    private Text statText;
+    private TextMeshProUGUI costText;
+    private TextMeshProUGUI statText;
 
     // Start is called before the first frame update
     void Start()
     {
-        costText = transform.parent.GetChild(3).GetComponent<Text>();
-        statText = transform.parent.GetChild(4).GetComponent<Text>();
+        costText = transform.parent.GetChild(3).GetComponent<TextMeshProUGUI>();
+        statText = transform.parent.GetChild(4).GetComponent<TextMeshProUGUI>();
         ChangeText();
         if (!Manager.buttons.ContainsKey(upgradeType))
         {

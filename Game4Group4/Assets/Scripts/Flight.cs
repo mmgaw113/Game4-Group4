@@ -32,7 +32,6 @@ public class Flight : MonoBehaviour
     private bool launched;
     private float launchTimer;
     public GameObject rocketTrail;
-    public float falling;
     // Start is called before the first frame update
     void Awake()
     {
@@ -51,7 +50,7 @@ public class Flight : MonoBehaviour
     }
     private void Start()
     {
-        falling = parachuteFallSpeed * (1.1f - (Manager.stats[UpgradeType.ParachuteSize].Val / Manager.stats[UpgradeType.Parachute].ValMax));
+        
     }
     private void OnCollisionEnter(Collision collision)
     {
@@ -59,8 +58,10 @@ public class Flight : MonoBehaviour
         {
             Destroy(collision.gameObject);
             lives--;
+            Manager.stats[UpgradeType.Lives].Val = lives;
             if(lives == 0)
             {
+                Manager.stats[UpgradeType.Lives].Val = 1;
                 dead = true;
                 rb.velocity = Vector3.zero;
                 rb.useGravity = false;
@@ -81,13 +82,13 @@ public class Flight : MonoBehaviour
 
     private void LoadUpgradeScene()
     {
+        Manager.stats[UpgradeType.Parachute].Val = 0.0f;
         SceneManager.LoadScene("UpgradeScene");
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(falling);
         if (!dead)
         {
             if(fuel > 0f)
@@ -190,6 +191,10 @@ public class Flight : MonoBehaviour
                         rb.velocity = new Vector2(parachuteMoveSpeed, rb.velocity.y);
                     }
                 }
+                else if(fuel <= 0)
+                {
+                    rb.velocity = new Vector2(0f, rb.velocity.y);
+                }
             }
             if (transform.position.x > xMax)
             {
@@ -230,7 +235,7 @@ public class Flight : MonoBehaviour
     void Parachute()
     {
         //rb.useGravity = false;
-        rb.velocity = new Vector3(rb.velocity.x, falling, 0f);
+        rb.velocity = new Vector3(rb.velocity.x, parachuteFallSpeed * (3f - (Manager.stats[UpgradeType.ParachuteSize].Val / Manager.stats[UpgradeType.ParachuteSize].ValMax)), 0f);
     }
     void Falling()
     {

@@ -511,7 +511,8 @@ MonoBehaviour:
   randomSpawnMax: 2
   xRight: 8
   xLeft: -8
-  yDiff: 9
+  yDiffMin: 9
+  yDiffMax: 30
   randomSpeedMin: 1
   randomSpeedMax: 5
 --- !u!4 &302380872
@@ -1757,8 +1758,8 @@ MonoBehaviour:
   fuel: 20
   launchSpeed: 100
   grounded: 0
-  fallSpeed: -10
-  parachuteFallSpeed: -20
+  fallSpeed: -20
+  parachuteFallSpeed: -6
   rotationSpeed: 20
   speed: 4
   xMax: 8
@@ -1767,7 +1768,6 @@ MonoBehaviour:
   boostSpeed: 0.6
   parachuteMoveSpeed: 1
   rocketTrail: {fileID: 1740631456}
-  falling: 0
 --- !u!1 &1740631456
 GameObject:
   m_ObjectHideFlags: 0
