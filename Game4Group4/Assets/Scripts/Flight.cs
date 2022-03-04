@@ -32,6 +32,7 @@ public class Flight : MonoBehaviour
     private bool launched;
     private float launchTimer;
     public GameObject rocketTrail;
+    public GameObject parachute;
     // Start is called before the first frame update
     void Awake()
     {
@@ -235,6 +236,7 @@ public class Flight : MonoBehaviour
     void Parachute()
     {
         //rb.useGravity = false;
+        parachute.SetActive(true);
         rb.velocity = new Vector3(rb.velocity.x, parachuteFallSpeed * (3f - (Manager.stats[UpgradeType.ParachuteSize].Val / Manager.stats[UpgradeType.ParachuteSize].ValMax)), 0f);
     }
     void Falling()
