@@ -58,8 +58,10 @@ public class Flight : MonoBehaviour
         {
             Destroy(collision.gameObject);
             lives--;
+            Manager.stats[UpgradeType.Lives].Val = lives;
             if(lives == 0)
             {
+                Manager.stats[UpgradeType.Lives].Val = 1;
                 dead = true;
                 rb.velocity = Vector3.zero;
                 rb.useGravity = false;
@@ -80,6 +82,7 @@ public class Flight : MonoBehaviour
 
     private void LoadUpgradeScene()
     {
+        Manager.stats[UpgradeType.Parachute].Val = 0.0f;
         SceneManager.LoadScene("UpgradeScene");
     }
 
@@ -187,6 +190,10 @@ public class Flight : MonoBehaviour
                         rb.velocity = new Vector2(parachuteMoveSpeed, rb.velocity.y);
                     }
                 }
+                else if(fuel <= 0)
+                {
+                    rb.velocity = new Vector2(0f, rb.velocity.y);
+                }
             }
             if (transform.position.x > xMax)
             {
@@ -227,7 +234,7 @@ public class Flight : MonoBehaviour
     void Parachute()
     {
         //rb.useGravity = false;
-        rb.velocity = new Vector3(rb.velocity.x, parachuteFallSpeed * (1.1f - (Manager.stats[UpgradeType.ParachuteSize].Val / Manager.stats[UpgradeType.ParachuteSize].ValMax)), 0f);
+        rb.velocity = new Vector3(rb.velocity.x, parachuteFallSpeed * (3f - (Manager.stats[UpgradeType.ParachuteSize].Val / Manager.stats[UpgradeType.ParachuteSize].ValMax)), 0f);
     }
     void Falling()
     {

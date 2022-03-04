@@ -11,7 +11,8 @@ public class AsteroidManager : MonoBehaviour
     private float timer;
     [SerializeField] private float xRight;
     [SerializeField] private float xLeft;
-    [SerializeField] private float yDiff;
+    [SerializeField] private float yDiffMin;
+    [SerializeField] private float yDiffMax;
     [SerializeField] private float randomSpeedMin;
     [SerializeField] private float randomSpeedMax;
     // Start is called before the first frame update
@@ -22,11 +23,8 @@ public class AsteroidManager : MonoBehaviour
 
     public void SwitchDir()
     {
-        yDiff *= -1;
-        randomSpawnMin /= 4f;
-        randomSpawnMax /= 4f;
-        randomSpeedMin *= 4f;
-        randomSpeedMax *= 4f;
+        yDiffMin *= -1f;
+        yDiffMax *= -1f;
     }
 
     // Update is called once per frame
@@ -43,7 +41,7 @@ public class AsteroidManager : MonoBehaviour
                 x = xLeft;
                 xDir = 1f;
             }
-            GameObject newAsteroid = Instantiate(asteroid, new Vector2(x, rocket.transform.position.y + yDiff), Quaternion.identity, transform);
+            GameObject newAsteroid = Instantiate(asteroid, new Vector2(x, rocket.transform.position.y + Random.Range(yDiffMin, yDiffMax)), Quaternion.identity, transform);
             newAsteroid.GetComponent<Rigidbody>().velocity = new Vector2(xDir, Random.Range(-1f, 1f)) * Random.Range(randomSpeedMin, randomSpeedMax);
         }
     }
