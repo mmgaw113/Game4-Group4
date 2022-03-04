@@ -1758,7 +1758,7 @@ MonoBehaviour:
   launchSpeed: 100
   grounded: 0
   fallSpeed: -10
-  parachuteFallSpeed: -3
+  parachuteFallSpeed: -20
   rotationSpeed: 20
   speed: 4
   xMax: 8
@@ -1767,6 +1767,7 @@ MonoBehaviour:
   boostSpeed: 0.6
   parachuteMoveSpeed: 1
   rocketTrail: {fileID: 1740631456}
+  falling: 0
 --- !u!1 &1740631456
 GameObject:
   m_ObjectHideFlags: 0

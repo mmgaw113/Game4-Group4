@@ -122,6 +122,7 @@ public class Flight : MonoBehaviour
                     if (Manager.stats[UpgradeType.Parachute].Val != 0f)
                     {
                         Parachute();
+                        rocketTrail.SetActive(false);
                     }
                     else
                     {
