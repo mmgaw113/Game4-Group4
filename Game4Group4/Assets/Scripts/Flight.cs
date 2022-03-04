@@ -151,10 +151,9 @@ public class Flight : MonoBehaviour
                             rb.velocity = rb.velocity * (1f - (Manager.stats[UpgradeType.ReverseSpeed].Val / Manager.stats[UpgradeType.ReverseSpeed].ValMax));
                         }
                     }
-                    if (boostFuel > 0f && Input.GetKey(KeyCode.LeftShift))
+                    if (boostFuel > 0f && fuel > 0f && Input.GetKey(KeyCode.LeftShift))
                     {
                         boostFuel -= Time.deltaTime;
-                        Vector3 tempVel = rb.velocity;
                         rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y + (rb.velocity.y * Manager.stats[UpgradeType.BoostSpeed].Val * boostSpeed));
                     }
                 }
