@@ -2596,7 +2596,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.65
+  m_fontSize: 72
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3086,7 +3086,7 @@ RectTransform:
   m_GameObject: {fileID: 1829370274}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.84458596, y: 0.92182225, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 1175412131}
   m_RootOrder: 1
@@ -3118,24 +3118,30 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'You get some starting money for your space project.
 
+
     Use the money
-    wisely to build you first flight and launch it.
+    wisely to build your first flight and launch it.
+
 
     Avoid astroids that come
     in your flight path to save the rocket from crashing using A and D to rotate
-    the rocket tip and change direction.
+    the rocket tip and change direction, as well as S to slow down and LShift to
+    use your Boost.
 
-    Once the fuel runs out you can pop
-    a parachute and try to land the rocket back or let it explode and pay the price
-    for a new rocket.
 
-    Every launch you get earn money based on height achived
-    during that particular launch.
+    Once the fuel runs out you can pop a parachute and try
+    to land the rocket back or let it explode and pay the price for a new rocket.
 
-    Happy racketeering ;)'
+
+    Every
+    launch you get earn money based on height achieved during that particular launch.
+
+
+    Happy
+    racketeering ;)'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
-  m_sharedMaterial: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
+  m_sharedMaterial: {fileID: 2140032, guid: dc36b3fdc14f47ebb36fd484a67e268a, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
