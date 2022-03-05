@@ -32,6 +32,11 @@ public class Flight : MonoBehaviour
     private bool launched;
     private float launchTimer;
     public GameObject rocketTrail;
+    public AudioClip rocketLaunch;
+    public AudioClip rocketHit;
+    public AudioClip rocketDead;
+    public AudioClip parachute;
+    private AudioSource[] sources;
     // Start is called before the first frame update
     void Awake()
     {
@@ -47,6 +52,7 @@ public class Flight : MonoBehaviour
         fuelText = canvas.transform.GetChild(1).GetComponent<Text>();
         boostText = canvas.transform.GetChild(2).GetComponent<Text>();
         launchTimer = 1f;
+        sources = GetComponents<AudioSource>();
     }
     private void Start()
     {
@@ -71,7 +77,14 @@ public class Flight : MonoBehaviour
                 if (earnings < 0) earnings = 0;
                 Manager.money += earnings;
                 Invoke("LoadUpgradeScene", 2f);
+                sources[0].clip = rocketDead;
+                sources[1].Stop();
             }
+            else
+            {
+                sources[0].clip = rocketHit;
+            }
+            sources[0].Play();
         }
         else if(launched)
         {
@@ -123,6 +136,8 @@ public class Flight : MonoBehaviour
                     if (Manager.stats[UpgradeType.Parachute].Val != 0f)
                     {
                         Parachute();
+                        sources[0].clip = parachute;
+                        sources[0].Play();
                     }
                     else
                     {
@@ -134,6 +149,9 @@ public class Flight : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F) && grounded)
             {
                 Launch();
+                sources[0].clip = rocketLaunch;
+                sources[0].Play();
+                sources[1].Play();
                 grounded = false;
             }
             if (!grounded)
