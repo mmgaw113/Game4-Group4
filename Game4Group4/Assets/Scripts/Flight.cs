@@ -37,6 +37,7 @@ public class Flight : MonoBehaviour
     public AudioClip rocketDead;
     public AudioClip parachute;
     private AudioSource[] sources;
+    public GameObject parachuteGO;
     // Start is called before the first frame update
     void Awake()
     {
@@ -60,12 +61,12 @@ public class Flight : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name[0] == 'A')
+        if (collision.gameObject.name[0] == 'A')
         {
             Destroy(collision.gameObject);
             lives--;
             Manager.stats[UpgradeType.Lives].Val = lives;
-            if(lives == 0)
+            if (lives == 0)
             {
                 Manager.stats[UpgradeType.Lives].Val = 1;
                 dead = true;
@@ -86,7 +87,7 @@ public class Flight : MonoBehaviour
             }
             sources[0].Play();
         }
-        else if(launched)
+        else if (launched)
         {
             Manager.money += (int)(height / 20f);
             Invoke("LoadUpgradeScene", 2f);
@@ -135,7 +136,7 @@ public class Flight : MonoBehaviour
                     lerping = true;
                     if (Manager.stats[UpgradeType.Parachute].Val != 0f)
                     {
-                        Parachute();
+                        DeployParachute();
                         sources[0].clip = parachute;
                         sources[0].Play();
                     }
@@ -248,14 +249,16 @@ public class Flight : MonoBehaviour
         rocketTrail.SetActive(true);
         launched = true;
     }
-    void Parachute()
+    void DeployParachute()
     {
         //rb.useGravity = false;
         rb.velocity = new Vector3(rb.velocity.x, parachuteFallSpeed * (3f - (Manager.stats[UpgradeType.ParachuteSize].Val / Manager.stats[UpgradeType.ParachuteSize].ValMax)), 0f);
+        parachuteGO.SetActive(true);
     }
     void Falling()
     {
         //rb.useGravity = false;
         rb.velocity = new Vector3(rb.velocity.x, fallSpeed, 0f);
+        sources[1].Stop();
     }
 }
