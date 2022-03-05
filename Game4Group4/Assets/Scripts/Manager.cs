@@ -20,29 +20,34 @@ public enum UpgradeType
 public class Manager : MonoBehaviour
 {
 
-    public static int money = 40;
+    public static int money = 3;
     public static int refundMoney = 0;
     private static Text moneyText;
     public static Dictionary<UpgradeType, Stat> stats;
     public static Dictionary<UpgradeType, UpgradeButtons> buttons;
     public static bool paused;
+    private static bool startRun;
 
     // Start is called before the first frame update
     void Awake()
     {
-        stats = new Dictionary<UpgradeType, Stat>();
-        buttons = new Dictionary<UpgradeType, UpgradeButtons>();
-        stats.Add(UpgradeType.Handling, new Stat(1f, 1f, 5f, 1f, 1, 1));
-        stats.Add(UpgradeType.LaunchSpeed, new Stat(1f, 1f, 5f, 1f, 1, 1));
-        stats.Add(UpgradeType.Speed, new Stat(1f, 1f, 5f, 1f, 1, 1));
-        stats.Add(UpgradeType.ReverseSpeed, new Stat(1f, 1f, 5f, 1f, 1, 1));
-        stats.Add(UpgradeType.Fuel, new Stat(1f, .5f, 3f, 1f, 1, 1));
-        stats.Add(UpgradeType.BoostSpeed, new Stat(1f, 1f, 5f, 1f, 1, 1));
-        stats.Add(UpgradeType.BoostFuel, new Stat(1f, .5f, 3f, 1f, 1, 1));
-        stats.Add(UpgradeType.Parachute, new Stat(0f, 1f, 1f, 0f, 3, 0));
-        stats.Add(UpgradeType.ParachuteSize, new Stat(1f, 1f, 5f, 1f, 1, 1));
-        stats.Add(UpgradeType.Lives, new Stat(1f, 1f, 3f, 1f, 1, 2));
-        DontDestroyOnLoad(gameObject);
+        if (!startRun)
+        {
+            startRun = true;
+            stats = new Dictionary<UpgradeType, Stat>();
+            buttons = new Dictionary<UpgradeType, UpgradeButtons>();
+            stats.Add(UpgradeType.Handling, new Stat(1f, 1f, 5f, 1f, 2, 3));
+            stats.Add(UpgradeType.LaunchSpeed, new Stat(1f, 1f, 100f, 1f, 1, 1));
+            stats.Add(UpgradeType.Speed, new Stat(1f, 1f, 100f, 1f, 1, 1));
+            stats.Add(UpgradeType.ReverseSpeed, new Stat(1f, 10f, 5f, 1f, 1, 1));
+            stats.Add(UpgradeType.Fuel, new Stat(1f, .5f, 10f, 1f, 1, 1));
+            stats.Add(UpgradeType.BoostSpeed, new Stat(1f, 1f, 100f, 1f, 1, 1));
+            stats.Add(UpgradeType.BoostFuel, new Stat(1f, .5f, 10f, 1f, 1, 1));
+            stats.Add(UpgradeType.Parachute, new Stat(0f, 1f, 1f, 0f, 6, 0));
+            stats.Add(UpgradeType.ParachuteSize, new Stat(1f, 1f, 5f, 1f, 1, 1));
+            stats.Add(UpgradeType.Lives, new Stat(1f, 1f, 3f, 1f, 3, 5));
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     void Start()
@@ -87,7 +92,10 @@ public class Manager : MonoBehaviour
     public static void AddMoney(int add)
     {
         money += add;
-        moneyText.text = "Money: " + money.ToString();
+        if (moneyText != null)
+        {
+            moneyText.text = "Money: " + money.ToString();
+        }
     }
 
     // Update is called once per frame
